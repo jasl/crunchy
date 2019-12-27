@@ -7,9 +7,10 @@ license = "MIT"
 build = "build.rs"
 
 [dependencies]
+sgx_tstd = { rev = "v1.1.0", git = "https://github.com/apache/teaclave-sgx-sdk.git", optional = true }
 
 [features]
-"std" = []
+"std" = ["mesalock"]
 "limit_64" = []
 "limit_128" = []
 "limit_256" = []
@@ -17,3 +18,4 @@ build = "build.rs"
 "limit_1024" = []
 "limit_2048" = []
 "default" = ["limit_128"]
+"mesalock" = ["sgx_tstd"]
